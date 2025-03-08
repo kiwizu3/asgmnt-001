@@ -88,7 +88,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div className={isCollapsed ? "ms-auto" : ""} onClick={() => handleNav("profile")}>
-                            <Link to="profile" className={`profile-button nav-link bg-white rounded-pill py-1 ps-1 pe-2 ${selectedNav === "profile" && "nav-active"}`}><img className="profile-image" src={loggedInUser?.avatar} /> {loggedInUser?.name || "Profile"}</Link>
+                            <Link to="profile" className={`profile-button nav-link bg-white rounded-pill py-1 ps-1 pe-2`}><img className="profile-image" src={loggedInUser?.avatar} /> {loggedInUser?.name || "Profile"}</Link>
                         </div>
                         {!isCollapsed && (
                             <button
