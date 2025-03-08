@@ -13,7 +13,7 @@ const Navbar = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     // Access loggedInUser from the post slice
-    const { loggedInUser, loading, error } = useSelector(
+    const { loggedInUser } = useSelector(
       (state: RootState) => state.post
     );
   
