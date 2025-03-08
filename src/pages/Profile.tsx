@@ -80,7 +80,7 @@ const Profile = () => {
             <div className="profile-container">
               <div className="profile-header">
                 <h1>{loggedInUser.name}</h1>
-                <p>{loggedInUser.city}</p>
+                <p>Lives in <strong>{loggedInUser.city}</strong></p>
               </div>
               <img
                 className="profile-img"
@@ -90,8 +90,9 @@ const Profile = () => {
               <div className="profile-info">
                 <div className="contact-info">
 
-                  <button
-                    className="contact-button"
+                <div className="d-flex">
+                    <button
+                    className="contact-button me-3"
                     onClick={handleEmailClick}
                   >
                     Send Email
@@ -104,11 +105,13 @@ const Profile = () => {
                     Call {formatPhoneNumber(loggedInUser.phone)}
                   </button>
 
+                </div>
                   <p>
-                    <span>Birthday:</span> {formatDate(loggedInUser.birthday)}
+                    <span>Born on</span> {formatDate(loggedInUser.birthday)}
                   </p>
+                  <hr className='custom-hr'/>
                   <p>
-                    <span>Registered:</span> {formatDate(loggedInUser.registered)}
+                    <span>Registered on</span> {formatDate(loggedInUser.registered)}
                   </p>
                 </div>
               </div>

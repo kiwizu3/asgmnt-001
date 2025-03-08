@@ -18,6 +18,11 @@
   width: 4rem;
 }
 
+.custom-hr{
+  border: 1px dashed #6a1b9a42 !important;
+  width: 75%;
+  opacity: 1 !important;
+}
 
 .card {
   padding: 2em;
