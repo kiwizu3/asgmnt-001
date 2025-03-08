@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+This is the Live Link: https://asgmnt-001.vercel.app/
+
+Note: There's an issue with the Vercel Deployment for React Vite installations : [Link Here](https://medium.com/@mfaeeshabbir/solving-reload-issues-in-vite-react-apps-on-vercel-and-netlify-6dfd8265f439)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
