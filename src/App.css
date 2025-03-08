@@ -1,8 +1,14 @@
-#root {
+
+.vh-100{
+  height: 100vh;
+}
+
+.other-bg {
+  background-color: #6A1B9A;
 }
 
 .main-bg{
-  background-image: url('assets/images/background.svg');
+  background-image: url('assets/images/banner.svg');
   height: 100vh;
   background-size: cover;
   background-position: center center;

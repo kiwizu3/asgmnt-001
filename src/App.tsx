@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import { Routes, Route } from 'react-router';
 
 import Home from './pages/Home';
@@ -12,7 +11,6 @@ import Navbar from './components/Navbar';
 
 
 function App() {
-  const [selectedPostId, setSelectedPostId] = useState<number | null>(null)
 
   return (
     <>

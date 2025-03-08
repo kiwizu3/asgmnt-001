@@ -28,11 +28,11 @@ const formatDate = (date: string) => {
     year: "numeric";
     month: "long";
     day: "numeric";
-} = {
+  } = {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
-};
+  };
   return new Date(date).toLocaleDateString(undefined, options);
 };
 
@@ -73,42 +73,50 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-header">
-        <h1>{loggedInUser.name}</h1>
-        <p>{loggedInUser.city}</p>
-      </div>
-      <img
-        className="profile-img"
-        src={loggedInUser.img}
-        alt={loggedInUser.name}
-      />
-      <div className="profile-info">
-        <div className="contact-info">
-          
-            <button
-              className="contact-button"
-              onClick={handleEmailClick}
-            >
-              Send Email
-            </button>
-          
-            <button
-              className="contact-button"
-              onClick={handlePhoneClick}
-            >
-              Call {formatPhoneNumber(loggedInUser.phone)}
-            </button>
-          
-          <p>
-            <span>Birthday:</span> {formatDate(loggedInUser.birthday)}
-          </p>
-          <p>
-            <span>Registered:</span> {formatDate(loggedInUser.registered)}
-          </p>
+    <>
+      <div className="container-fluid vh-100 other-bg">
+        <div className="row h-100">
+          <div className="col-12 my-auto">
+            <div className="profile-container">
+              <div className="profile-header">
+                <h1>{loggedInUser.name}</h1>
+                <p>{loggedInUser.city}</p>
+              </div>
+              <img
+                className="profile-img"
+                src={loggedInUser.img}
+                alt={loggedInUser.name}
+              />
+              <div className="profile-info">
+                <div className="contact-info">
+
+                  <button
+                    className="contact-button"
+                    onClick={handleEmailClick}
+                  >
+                    Send Email
+                  </button>
+
+                  <button
+                    className="contact-button"
+                    onClick={handlePhoneClick}
+                  >
+                    Call {formatPhoneNumber(loggedInUser.phone)}
+                  </button>
+
+                  <p>
+                    <span>Birthday:</span> {formatDate(loggedInUser.birthday)}
+                  </p>
+                  <p>
+                    <span>Registered:</span> {formatDate(loggedInUser.registered)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

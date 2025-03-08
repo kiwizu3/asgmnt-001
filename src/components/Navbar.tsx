@@ -1,22 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUsers } from "../features/postSlice";
+import { RootState, AppDispatch } from "../store";
+
 
 const Navbar = () => {
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [selectedNav, setSelectedNav] = useState('/');
+    const [isScrolled, setIsScrolled] = useState(false); // State for scroll position
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    // Access loggedInUser from the post slice
+    const { loggedInUser, loading, error } = useSelector(
+      (state: RootState) => state.post
+    );
+  
+    useEffect(() => {
+      dispatch(fetchUsers());
+    }, [dispatch]);
+  
+
+    // Scroll event to handle navbar transparency and progress bar
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            setIsScrolled(scrollTop > 0); // Navbar turns background when scrolled
+
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleToggle = () => {
         setIsCollapsed(!isCollapsed);
     };
 
     const handleNav = (item: any) => {
-        console.log("what", item)
         setSelectedNav(item)
     }
 
+    // Determine navbar class based on scroll and expanded state
+    const navbarClass = `navbar navbar-expand-lg fixed-top ${isScrolled ? 'navbar-light bg-white shadow' : 'navbar-dark navbar-transparent'}`;
+
+
     return (
         <>
-            <nav className="navbar navbar-expand-lg fixed-top p-3">
+            <nav className={`${navbarClass} p-3`}>
                 <div className="container-fluid">
                     <div className="position-relative">
                         <Link className="navbar-brand position-absolute top-m2" to="/">
@@ -69,7 +103,7 @@ const Navbar = () => {
               </li> */}
                         </ul>
                         <div className={isCollapsed ? "ms-auto" : ""} onClick={() => handleNav("profile")}>
-                            <Link to="profile" className={`nav-link ${selectedNav === "profile" && "nav-active"}`}>Profile</Link>
+                            <Link to="profile" className={`profile-button nav-link bg-white rounded-pill py-1 ps-1 pe-2 ${selectedNav === "profile" && "nav-active"}`}><img className="profile-image" src={loggedInUser?.avatar} /> {loggedInUser?.name || "Profile"}</Link>
                         </div>
                         {!isCollapsed && (
                             <button
