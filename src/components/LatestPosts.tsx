@@ -15,8 +15,8 @@ const LatestPosts = () => {
     const latestPosts = posts.slice(0, 3);
 
     return (
-        <div className="container py-4">
-            <h2 className="text-center my-5">Latest Posts</h2>
+       <>
+            <h3 className="text-center my-5">Latest Posts</h3>
 
             {loading && <p className="text-center">Loading posts...</p>}
             {error && <p className="text-center text-danger">Error loading posts: {error}</p>}
@@ -35,7 +35,7 @@ const LatestPosts = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     );
 };
 
