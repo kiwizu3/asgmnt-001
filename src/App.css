@@ -8,7 +8,7 @@
 }
 
 .main-bg{
-  background-image: url('assets/images/banner.svg');
+  background-image: url('/assets/images/banner.svg');
   height: 100vh;
   background-size: cover;
   background-position: center center;
