@@ -1,0 +1,82 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 350px; /* Adjusted width for contact card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header h1 {
+    font-size: 1.75rem;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .profile-header p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #ddd;
+  }
+  
+  .profile-info {
+    text-align: left;
+    font-size: 1rem;
+    color: #555;
+    width: 100%;
+  }
+  
+  .profile-info p {
+    margin: 10px 0;
+    color: #444;
+  }
+  
+  .profile-info span {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .contact-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .contact-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-info p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
