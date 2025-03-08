@@ -10,21 +10,22 @@ interface PostProps {
 const PostCard: React.FC<PostProps> = ({ post, showAuthor = true, linkToPost = true }) => {
     return (
         <div className="col-md-6 col-lg-4 mb-4">
-            <div className="card shadow-sm border-light">
-                <div className="card-body">
-                    {linkToPost ? (
-                        <Link to={`/posts/${post.id}`} className="text-decoration-none text-dark">
+            <Link to={`/posts/${post.id}`} className="text-decoration-none text-dark">
+                <div className="card shadow-sm border-light">
+                    <div className="card-body">
+                        {linkToPost ? (
                             <h5 className="fw-bold">{post.title}</h5>
-                        </Link>
-                    ) : (
-                        <h5 className="fw-bold">{post.title}</h5>
-                    )}
 
-                    {showAuthor && (
-                        <p>Author: <strong>{post.user?.name}</strong></p>
-                    )}
+                        ) : (
+                            <h5 className="fw-bold">{post.title}</h5>
+                        )}
+
+                        {showAuthor && (
+                            <p>Author: <strong>{post.user?.name}</strong></p>
+                        )}
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 }
