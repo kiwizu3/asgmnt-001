@@ -67,7 +67,7 @@ const Post = () => {
 
     return (
         <div className="container py-5">
-        <Link to="/posts" className="btn btn-outline-primary mb-4">← Back to Posts</Link>
+        <Link to="/posts" className="btn btn-outline-primary my-5">← Back to Posts</Link>
 
         {post ? (
             <div className="post mb-5">

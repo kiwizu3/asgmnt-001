@@ -73,7 +73,7 @@ const Navbar = () => {
                         id="navbarNav"
                     >
                         <ul
-                            className={`navbar-nav ${isCollapsed ? "justify-content-center ms-auto" : ""
+                            className={`navbar-nav ${isCollapsed ? "justify-content-center navbar-main-link" : ""
                                 }`}
                         >
                             <li className="nav-item" onClick={() => handleNav("/")}>
@@ -86,21 +86,6 @@ const Navbar = () => {
                                     Posts
                                 </Link>
                             </li>
-                            {/* <li className="nav-item" onClick={() => handleNav("about")}>
-                <a className={`nav-link ${selectedNav === "about" && "nav-active"}`} href="profile">
-                  Profile
-                </a>
-              </li>
-              <li className="nav-item" onClick={() => handleNav("community")}>
-                <a className={`nav-link ${selectedNav === "community" && "nav-active"}`} href="#">
-                  Community
-                </a>
-              </li>
-              <li className="nav-item" onClick={() => handleNav("blog")}>
-                <a className={`nav-link ${selectedNav === "blog" && "nav-active"}`} href="#">
-                  Blog
-                </a>
-              </li> */}
                         </ul>
                         <div className={isCollapsed ? "ms-auto" : ""} onClick={() => handleNav("profile")}>
                             <Link to="profile" className={`profile-button nav-link bg-white rounded-pill py-1 ps-1 pe-2 ${selectedNav === "profile" && "nav-active"}`}><img className="profile-image" src={loggedInUser?.avatar} /> {loggedInUser?.name || "Profile"}</Link>

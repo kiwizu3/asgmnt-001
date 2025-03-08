@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPosts } from "../features/postSlice";
 import { RootState, AppDispatch } from "../store";
+import Pagination from "../components/Pagination";
 
 const Posts = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -21,36 +22,30 @@ const Posts = () => {
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
+    const truncateText = (text: string, wordLimit: number = 5) => {
+        return text.split(" ").slice(0, wordLimit).join(" ") + (text.split(" ").length > wordLimit ? "..." : "");
+    };
+
     // Change page
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-    // Calculate page numbers
-    const totalPages = Math.ceil(posts.length / postsPerPage);
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
-    }
-
     return (
-        <div className="container-fluid other-bg py-5">
-            <h1 className="display-4 text-center mb-4">Posts</h1>
-            <p className="lead text-center mb-5">Welcome to the Posts page</p>
+        <div className="container-fluid py-5 other-bg">
+            <h1 className="text-center mt-5 text-white">Posts</h1>
+            <p className="lead text-center mb-5 text-white">Welcome to the Posts page</p>
 
             {loading && <p className="text-center">Loading posts...</p>}
             {error && <p className="text-center text-danger">Error loading posts: {error}</p>}
 
-            <div className="row mx-5">
+            <div className="row">
                 {currentPosts.map((post: any) => (
                     <div key={post.id} className="col-md-6 col-lg-4 mb-4">
                         <Link to={`/posts/${post.id}`} className="text-decoration-none text-dark">
                             <div className="card shadow-sm border-light">
                                 <div className="card-body">
-                                    <h5 className="fw-bold">
-
-                                        {post.title}
-
-                                    </h5>
-                                    <p>Author: <strong>{post.user?.name}</strong></p>
+                                    <h5 className="fw-bold">{post.title}</h5>
+                                    <p>{truncateText(post.body)}</p>
+                                    <small>Author: <strong>{post.user?.name}</strong></small>
                                 </div>
                             </div>
                         </Link>
@@ -59,33 +54,12 @@ const Posts = () => {
             </div>
 
             {/* Pagination Controls */}
-            <nav aria-label="Page navigation">
-                <ul className="pagination justify-content-center">
-                    {currentPage > 1 && (
-                        <li className="page-item">
-                            <button className="page-link" onClick={() => paginate(currentPage - 1)}>
-                                Previous
-                            </button>
-                        </li>
-                    )}
-
-                    {pageNumbers.map(number => (
-                        <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
-                            <button className="page-link" onClick={() => paginate(number)}>
-                                {number}
-                            </button>
-                        </li>
-                    ))}
-
-                    {currentPage < totalPages && (
-                        <li className="page-item">
-                            <button className="page-link" onClick={() => paginate(currentPage + 1)}>
-                                Next
-                            </button>
-                        </li>
-                    )}
-                </ul>
-            </nav>
+            <Pagination 
+                currentPage={currentPage} 
+                postsPerPage={postsPerPage} 
+                totalPosts={posts.length} 
+                paginate={paginate} 
+            />
         </div>
     );
 }

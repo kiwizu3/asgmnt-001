@@ -1,5 +1,4 @@
-
-.vh-100{
+.vh-100 {
   height: 100vh;
 }
 
@@ -7,7 +6,7 @@
   background-color: #6A1B9A;
 }
 
-.main-bg{
+.main-bg {
   background-image: url('/assets/images/banner.svg');
   height: 100vh;
   background-size: cover;
@@ -45,11 +44,11 @@
   box-shadow: 0 0 0 0 !important;
 }
 
-.right-1{
+.right-1 {
   right: 1rem !important;
 }
 
-.top-m2{
+.top-m2 {
   top: -2rem;
 }
 
@@ -80,4 +79,86 @@
 .full-page .btn-close {
   font-size: 1.5rem;
   color: black;
+}
+
+.stat-title {
+  color: #9C27B0;
+}
+
+.stat-img {
+  width: 1rem;
+}
+
+.stat-border {
+  width: 1px;
+}
+
+.fw-stat {
+  font-weight: 600 !important;
+}
+
+.bg-img-about {
+  background-image: url('/assets/images/rectanlge.svg');
+}
+
+.p-about-1 {
+  padding-right: 16rem !important;
+  padding-left: 5rem !important;
+}
+
+.p-about-2 {
+  padding-right: 5rem !important;
+  padding-left: 16rem !important;
+}
+
+.p-about-img-1 {
+  padding-right: 5rem !important;
+  padding-left: 10rem !important;
+}
+
+.p-about-img-2 {
+  padding-right: 10rem !important;
+  padding-left: 5rem !important;
+}
+
+.about-button {
+  --bs-btn-bg: #9C27B0 !important;
+  --bs-btn-border-color: #9C27B0;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #9225a5;
+  --bs-btn-hover-border-color: #9225a5;
+}
+
+.about-indicator {
+  width: 3rem;
+}
+
+.button-watch-video {
+  background-color: transparent;
+}
+
+.button-get-started {
+  border-radius: 2rem;
+  border: 0px;
+  background-color: #8BC34A;
+}
+
+.watch-video-btn-container{
+  border-radius: 2rem;
+  background-color: #9C27B0;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+
+.watch-video-btn{
+  width: 1rem;
+  padding-left: 0.2rem;
+}
+
+button.page-link{
+  border-radius: 3rem;
+}
+
+
+.navbar-main-link{
+  margin-left: 6rem !important;
 }
